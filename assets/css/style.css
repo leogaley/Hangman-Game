@@ -1,0 +1,22 @@
+.red {
+	background-color:red;
+}
+
+#game-main-list {
+	list-style-type:none;
+	
+}
+
+li {
+	float:left;
+	font-size:20px;
+	padding:0px 30px;
+}
+
+#guesses {
+
+}
+
+#remaining {
+	
+}

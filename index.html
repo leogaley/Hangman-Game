@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>Hangman Game</title>
+	<script type="text/javascript" src=assets/javascript/game.js></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+<body>
+
+<header class= "container">
+	<h1 class="jumbotron">
+		Chiefs Hangman
+	</h1>
+</header>
+
+<div class = "container">
+	<div class="row">
+		<div class="panel col-sm-10">
+			<div class = "red panel-body" id="game-main">
+				<h2> main board box </h2>
+			</div>
+		</div>
+
+		<div class="panel col-sm-2">
+			<div class = "red panel-body" id="game-score">
+				<h2> W/L </h2>
+			</div>
+		</div>
+
+
+	</div>
+	
+	<div class="row">
+
+		<div class="panel col-sm-3">
+			<div class = "red panel-body" id="game-draw">
+				<h3> Incorrect Guesses Remaining </h3>
+				<h3 id="remaining">5</h3>
+				<p id="guesses"></p>
+
+			</div>
+		</div>
+
+		<div class="panel col-sm-3">
+			<div class = "red panel-body" id="game-draw">
+				<h2> hangman pictorial </h2>
+			</div>
+		</div>
+
+		<div class="panel col-sm-3">
+			<div class = "red panel-body" id="game-jersey">
+				<h2> jersey </h2>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+</body>
+</html>
