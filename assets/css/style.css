@@ -17,9 +17,14 @@ header {
 	text-align:center;
 }
 
-#game-main-list {
+#first-name {
 	list-style-type:none;
 	
+}
+
+#last-name{
+	clear:both;
+	list-style-type:none;
 }
 
 li {
@@ -30,6 +35,7 @@ li {
 }
 
 #guesses {
+	padding:15px;
 
 }
 
@@ -45,6 +51,7 @@ body {
 	/*CC0000 red*/
 	font-family: 'Bevan', sans-serif;
 	background: url(../images/bg2.jpg) repeat 0 0;
+	/*assets/images/arrow16_top.jpg*/
 	
 }
 

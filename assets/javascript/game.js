@@ -9,23 +9,24 @@ var hangmanGame = {
 		this.gameStarted = true;
 		
 		},
-	playerOptions:["Len-Dawson","Joe-Montana"],
+	playerOptions:["LEN-DAWSON","JOE-MONTANA","JAMAAL-CHARLES","TONY-GONZALES","PRIEST-HOLMES"],
 	selectPlayer: function() {
 		var player = this.playerOptions[Math.floor(Math.random()*this.playerOptions.length)];
 		this.currentPlayer = player;
 		guessContent = document.getElementById("game-main");
 
+		var space = '</li></ul><ul id="last-name"><li>';
 		var playerArray = [];
 		for (i=0;i<player.length;i++){
 			var spaceIndex = player.indexOf('-');
 			if ( spaceIndex !== -1 && i===0) {
-				playerArray[spaceIndex] = "_";
+				playerArray[spaceIndex] = space;
 				playerArray[i]= "-";
 				this.playerArray[i]="-";
-				this.playerArray[spaceIndex]="_";
+				this.playerArray[spaceIndex]= space;
 				// console.log("i = " + i + ": this.playerArray = " + this.playerArray);
 			}
-			else if (this.playerArray[i] !== "_") {
+			else if (this.playerArray[i] !== space) {
 				playerArray[i]= "-";
 				this.playerArray[i]="-";
 			}
@@ -40,32 +41,45 @@ var hangmanGame = {
 	currentPlayer: null,
 	guessesRemaining: 5,
 	check: function(letter){
-		//check if letter is part of player
-		if(this.currentPlayer.includes(letter)){
-			letterIndex = this.currentPlayer.indexOf(letter);
-			this.playerArray[letterIndex]=letter;
-			this.setBoard();
-			}
-		else {
-			this.guessesRemaining -- ;
-			console.log(this.guessesRemaining);
-			document.getElementById('remaining').innerHTML = this.guessesRemaining;
 
-			document.getElementById('guesses').innerHTML += "  " + letter;
-			//put body part on board
-
+		letter = letter.toUpperCase();
+		if(this.allLetters.includes(letter)){
+			//check if letter is part of player
+			var i = 0;
+			if(this.currentPlayer.indexOf(letter,i)!==-1){
+				while(this.currentPlayer.indexOf(letter,i)!==-1){
+					letterIndex = this.currentPlayer.indexOf(letter,i);
+					this.playerArray[letterIndex]=letter;
+					i = letterIndex + 1;
+				}
+				this.setBoard();
 			}
+
+			else {
+				this.guessesRemaining -- ;
+				console.log(this.guessesRemaining);
+				document.getElementById('remaining').innerHTML = this.guessesRemaining;
+
+				document.getElementById('guesses').innerHTML += "  " + letter;
+				//put body part on board
+
+				}
+		}
+
+
 		},
 	playerArray: [],
 	setBoard: function() {
-		html = '<ul id="game-main-list">';
+		html = '<ul id="first-name">';
 			for (i=0;i<this.playerArray.length;i++){
 				html += "<li>" + this.playerArray[i] + "  </li>";
 			}	
 		html += "</ul>";
 		document.getElementById('game-main').innerHTML = html;
 		console.log(html);
-		}
+		},
+	allLetters: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V"
+					,"W","X","Y","Z"]
 
 }
 
