@@ -1,5 +1,20 @@
-.red {
-	background-color:red;
+.well-style {
+	background-color:#d8ab4e;
+	border-radius: 15px;
+	/*padding:20px;*/
+	border:5px solid #CC0000;
+	opacity: 0.9;
+
+}
+#logo1{
+	float:left;
+}
+
+#logo2{
+	float:right;
+}
+header {
+	text-align:center;
 }
 
 #game-main-list {
@@ -9,8 +24,9 @@
 
 li {
 	float:left;
-	font-size:20px;
+	font-size:30px;
 	padding:0px 30px;
+	text-shadow:1px 1px #CC0000;
 }
 
 #guesses {
@@ -18,5 +34,24 @@ li {
 }
 
 #remaining {
+	text-align:center;
+	font-size:50px;
+
+}
+
+body {
+	/*#d8ab4e gold */
+	/*#040404 charcoal*/
+	/*CC0000 red*/
+	font-family: 'Bevan', sans-serif;
+	background: url(../images/bg2.jpg) repeat 0 0;
 	
 }
+
+.outer-container {
+	
+}
+
+
+/*glyphicon glyphicon-ok-sign*/
+/*glyphicon glyphicon-remove-sign*/

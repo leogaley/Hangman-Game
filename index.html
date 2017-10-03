@@ -10,27 +10,30 @@
 	<title>Hangman Game</title>
 	<script type="text/javascript" src=assets/javascript/game.js></script>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet">
 
 </head>
 <body>
 
 <header class= "container">
-	<h1 class="jumbotron">
-		Chiefs Hangman
+	<img id="logo1" src="logo.eps" alt="">
+	<h1 class="well-style jumbotron">
+		CHIEFS HANGMAN
 	</h1>
+	<img id="logo2" src="logo.eps" alt="">
 </header>
 
 <div class = "container">
 	<div class="row">
-		<div class="panel col-sm-10">
-			<div class = "red panel-body" id="game-main">
-				<h2> main board box </h2>
+		<div class="well-lg col-sm-10">
+			<div class = "well-style panel-body" id="game-main">
+				<h2 class="text-center">PRESS ANY KEY TO BEGIN</h2>
 			</div>
 		</div>
 
-		<div class="panel col-sm-2">
-			<div class = "red panel-body" id="game-score">
-				<h2> W/L </h2>
+		<div class="well-lg col-sm-2">
+			<div class = "well-style panel-body" id="game-score">
+				<h2 class="text-center"> W/L </h2>
 			</div>
 		</div>
 
@@ -39,24 +42,25 @@
 	
 	<div class="row">
 
-		<div class="panel col-sm-3">
-			<div class = "red panel-body" id="game-draw">
-				<h3> Incorrect Guesses Remaining </h3>
+		<div class="well-lg col-sm-4">
+			<div class = "well-style panel-body" id="game-draw">
+				<h4>Guessed Letters</h4>
+				
+				<h3 id="guesses"></h3>
+
+			</div>
+		</div>
+
+		<div class="well-lg col-sm-4">
+			<div class = "well-style panel-body" id="game-draw">
+				<h4 class="text-center">Guesses Remaining</h4>
 				<h3 id="remaining">5</h3>
-				<p id="guesses"></p>
-
 			</div>
 		</div>
 
-		<div class="panel col-sm-3">
-			<div class = "red panel-body" id="game-draw">
-				<h2> hangman pictorial </h2>
-			</div>
-		</div>
-
-		<div class="panel col-sm-3">
-			<div class = "red panel-body" id="game-jersey">
-				<h2> jersey </h2>
+		<div class="well-lg col-sm-4">
+			<div class = "well-style panel-body" id="game-jersey">
+				<h2> *jersey image* </h2>
 			</div>
 		</div>
 
