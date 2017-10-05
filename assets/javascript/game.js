@@ -5,13 +5,21 @@ var hangmanGame = {
 	gameStarted: false,
 	startGame: function() {
 		console.log("Selected Player: " + this.selectPlayer());
+		this.selectPlayer();
 		this.setBoard();
 		this.gameStarted = true;
+		$("#remaining").text("6");
+		$("#guesses").text("");
 		
 		},
 	playerOptions:["LEN-DAWSON","JOE-MONTANA","JAMAAL-CHARLES","TONY-GONZALES","PRIEST-HOLMES"],
 	selectPlayer: function() {
-		var player = this.playerOptions[Math.floor(Math.random()*this.playerOptions.length)];
+		if(this.currentPlayerIndex !== null){
+			this.playerOptions.splice(this.currentPlayerIndex,1);
+			console.log(this.playerOptions);
+		}
+		var randomIndex = Math.floor(Math.random()*this.playerOptions.length);
+		var player = this.playerOptions[randomIndex];
 		this.currentPlayer = player;
 		guessContent = document.getElementById("game-main");
 
@@ -32,13 +40,14 @@ var hangmanGame = {
 			}
 			
 		}
-		// console.log(this.playerArray);
+		console.log(this.playerArray);
 		
 
 		return player;
 		
 		},
 	currentPlayer: null,
+	currentPlayerIndex: null,
 	guessesRemaining: 5,
 	check: function(letter){
 
@@ -53,22 +62,46 @@ var hangmanGame = {
 					i = letterIndex + 1;
 				}
 				this.setBoard();
+				if(this.playerArray.indexOf("-")==-1){
+					var winText = "<p>*** YOU WIN!! ***  PRESS ANY KEY TO START OVER.</p>";
+						 $("#game-main").prepend(winText);
+						 this.totalWins++;
+						 $("#totalWins").text("W: " + this.totalWins);
+						 this.gameStarted = false;
+						 this.playerArray = [];
+			
+				}
 			}
 
 			else {
 				this.guessesRemaining -- ;
-				console.log(this.guessesRemaining);
+				//console.log(this.guessesRemaining);
 				document.getElementById('remaining').innerHTML = this.guessesRemaining;
 
 				document.getElementById('guesses').innerHTML += "  " + letter;
-				//put body part on board
+				//check for loss
+					if(this.guessesRemaining == 0){
+						 var loseText = "<p>GAME OVER. ANSWER IS: **" + this.currentPlayer + "** PRESS ANY KEY TO START OVER.</p>";
+						 $("#game-main").prepend(loseText);
+						 this.totalLosses++
+						 $("#totalLosses").text("L: " + this.totalLosses);
+						 this.gameStarted = false;
+						 this.playerArray = [];
+			
+					}
+
 
 				}
 		}
 
+		//check for win
+
+
 
 		},
 	playerArray: [],
+	totalWins: 0,
+	totalLosses: 0,
 	setBoard: function() {
 		html = '<ul id="first-name">';
 			for (i=0;i<this.playerArray.length;i++){
@@ -76,7 +109,7 @@ var hangmanGame = {
 			}	
 		html += "</ul>";
 		document.getElementById('game-main').innerHTML = html;
-		console.log(html);
+		//console.log(html);
 		},
 	allLetters: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V"
 					,"W","X","Y","Z"]
