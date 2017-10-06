@@ -50,9 +50,10 @@ body {
 	/*#040404 charcoal*/
 	/*CC0000 red*/
 	font-family: 'Bevan', sans-serif;
-	background: url(../images/bg2.jpg) repeat 0 0;
+	background: url(../images/bg2.jpg) repeat-y 0 0;
+	/*background: url(../images/bg2.jpg) repeat 0 0;*/
 	/*assets/images/arrow16_top.jpg*/
-	
+	background-size: 100%;
 }
 
 .outer-container {
@@ -62,3 +63,8 @@ body {
 
 /*glyphicon glyphicon-ok-sign*/
 /*glyphicon glyphicon-remove-sign*/
+
+
+.player-image {
+	max-width:100%;
+}

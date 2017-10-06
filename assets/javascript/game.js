@@ -4,15 +4,30 @@
 var hangmanGame = {
 	gameStarted: false,
 	startGame: function() {
+
+		
+
+
 		// console.log("Selected Player: " + this.selectPlayer());
 		this.selectPlayer();
 		this.setBoard();
 		this.gameStarted = true;
-		$("#remaining").text("6");
+		this.guessesRemaining = 7;
+		$("#remaining").text(this.guessesRemaining);
 		$("#guesses").text("");
+
+
 		
 		},
-	playerOptions:["LEN-DAWSON","JOE-MONTANA","JAMAAL-CHARLES","TONY-GONZALES","PRIEST-HOLMES"],
+	playerOptions:["LEN-DAWSON","JOE-MONTANA","JAMAAL-CHARLES","TONY-GONZALEZ","PRIEST-HOLMES",],
+	players: {
+		"LEN-DAWSON" : {name:"Len Dawson",number:"16",position:"QUARTERBACK", imagePath: "assets/images/len.jpg"},
+		"JOE-MONTANA": {name:"Joe Montana",number:"16",position:"QUARTERBACK", imagePath: "assets/images/joe.jpg"},
+		"JAMAAL-CHARLES": {name:"Jamaal Charles",number:"25",position:"RUNNING BACK", imagePath: "assets/images/jamaal.jpg"},
+		"TONY-GONZALEZ": {name:"Tony Gonzales",number:"88",position:"TIGHT END", imagePath: "assets/images/tony.jpg"},
+		"PRIEST-HOLMES": {name:"Priest Holmes",number:"31",position:"RUNNING BACK", imagePath: "assets/images/priest.jpg"}
+
+	},
 	selectPlayer: function() {
 		if(this.currentPlayerIndex !== null){
 			this.playerOptions.splice(this.currentPlayerIndex,1);
@@ -20,6 +35,7 @@ var hangmanGame = {
 		}
 		var randomIndex = Math.floor(Math.random()*this.playerOptions.length);
 		var player = this.playerOptions[randomIndex];
+		this.currentPlayerIndex = randomIndex;
 		this.currentPlayer = player;
 		guessContent = document.getElementById("game-main");
 
@@ -48,7 +64,7 @@ var hangmanGame = {
 		},
 	currentPlayer: null,
 	currentPlayerIndex: null,
-	guessesRemaining: 5,
+	guessesRemaining: 7,
 	check: function(letter){
 
 		letter = letter.toUpperCase();
@@ -63,6 +79,13 @@ var hangmanGame = {
 				}
 				this.setBoard();
 				if(this.playerArray.indexOf("-")==-1){
+					var modalImage = $("<div>");
+					modalImage.html('<img class="player-image"src="' + this.players[this.currentPlayer].imagePath + '" />');
+					
+
+					$("#modal-content").html(modalImage);
+					// console.log($('#modal'));
+					$('#modal').modal();
 					var winText = "<p>*** YOU WIN!! ***  PRESS ANY KEY TO START OVER.</p>";
 						 $("#game-main").prepend(winText);
 						 this.totalWins++;
@@ -79,9 +102,34 @@ var hangmanGame = {
 				document.getElementById('remaining').innerHTML = this.guessesRemaining;
 
 				document.getElementById('guesses').innerHTML += "  " + letter;
+
+				var hintBox = $("#game-hint");
+
+				if (this.guessesRemaining == 5){
+
+					var hint1 = $("<h3>");
+					hint1.text("Jersey Number : " + this.players[this.currentPlayer].number);
+					hintBox.append(hint1);
+
+
+
+				}
+
+				if (this.guessesRemaining == 3){
+
+					var hint2 = $("<h3>");
+					hint2.text("Position : " + this.players[this.currentPlayer].position);
+					hintBox.append(hint2);
+
+
+
+				}
+
+
+
 				//check for loss
 					if(this.guessesRemaining == 0){
-						 var loseText = "<p>GAME OVER. ANSWER IS: **" + this.currentPlayer + "** PRESS ANY KEY TO START OVER.</p>";
+						 var loseText = "<p>GAME OVER. ANSWER IS: ** " + this.currentPlayer + " ** PRESS ANY KEY TO START OVER.</p>";
 						 $("#game-main").prepend(loseText);
 						 this.totalLosses++
 						 $("#totalLosses").text("L: " + this.totalLosses);
