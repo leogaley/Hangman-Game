@@ -4,7 +4,7 @@
 var hangmanGame = {
 	gameStarted: false,
 	startGame: function() {
-		console.log("Selected Player: " + this.selectPlayer());
+		// console.log("Selected Player: " + this.selectPlayer());
 		this.selectPlayer();
 		this.setBoard();
 		this.gameStarted = true;
@@ -24,18 +24,18 @@ var hangmanGame = {
 		guessContent = document.getElementById("game-main");
 
 		var space = '</li></ul><ul id="last-name"><li>';
-		var playerArray = [];
+		// var playerArray = [];
 		for (i=0;i<player.length;i++){
 			var spaceIndex = player.indexOf('-');
 			if ( spaceIndex !== -1 && i===0) {
-				playerArray[spaceIndex] = space;
-				playerArray[i]= "-";
+				// playerArray[spaceIndex] = space;
+				// playerArray[i]= "-";
 				this.playerArray[i]="-";
 				this.playerArray[spaceIndex]= space;
 				// console.log("i = " + i + ": this.playerArray = " + this.playerArray);
 			}
 			else if (this.playerArray[i] !== space) {
-				playerArray[i]= "-";
+				// playerArray[i]= "-";
 				this.playerArray[i]="-";
 			}
 			
