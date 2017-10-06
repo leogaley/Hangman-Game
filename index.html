@@ -16,21 +16,24 @@
 <body>
 
 <header class= "container">
-	<img id="logo1" src="#" alt="">
+	
 	<h1 class="well-style jumbotron">
 		CHIEFS HANGMAN
 	</h1>
-	<img id="logo2" src="arrow16_top.jpg" alt="">
+	
 </header>
 
+<!-- container for bootstrap/grid -->
 <div class = "container">
 	<div class="row">
+		<!-- main game board.  I'm going to leave it but @ cell phone width it allows the last name <li> to go on multiple rows.  Could fix if I really wanted to -->
 		<div class="well-lg col-sm-10">
 			<div class = "well-style panel-body" id="game-main">
 				<h2 class="text-center">PRESS ANY KEY TO BEGIN</h2>
 			</div>
 		</div>
-
+		
+		<!-- W/L Counter -->
 		<div class="well-lg col-sm-2">
 			<div class = "well-style panel-body" id="game-score">
 				<h2 id="totalWins" class="text-center">W: </h2>
@@ -41,10 +44,11 @@
 
 	</div>
 	
+	<!-- three columns withing this row, for guessed letters, guesses remaining, hints box -->
 	<div class="row">
-
+		
 		<div class="well-lg col-sm-4">
-			<div class = "well-style panel-body" id="game-draw">
+			<div class = "well-style panel-body">
 				<h4 class = "text-center">Guessed Letters</h4>
 				
 				<h3 id="guesses"></h3>
@@ -53,7 +57,7 @@
 		</div>
 
 		<div class="well-lg col-sm-4">
-			<div class = "well-style panel-body" id="game-draw">
+			<div class = "well-style panel-body">
 				<h4 class="text-center">Guesses Remaining</h4>
 				<h3 id="remaining">7</h3>
 			</div>
@@ -71,7 +75,7 @@
 
 
 
-<!-- Modal -->
+<!-- Modal : turned on when win condition met (w/JQuery).  Dynamic content also inserted at that time-->
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 

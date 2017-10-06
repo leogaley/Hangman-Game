@@ -6,17 +6,13 @@
 	opacity: 0.9;
 
 }
-#logo1{
-	float:left;
-}
 
-#logo2{
-	float:right;
-}
 header {
 	text-align:center;
 }
 
+
+/*split name onto two lines*/
 #first-name {
 	list-style-type:none;
 	
@@ -27,6 +23,11 @@ header {
 	list-style-type:none;
 }
 
+
+
+
+
+/*styling for main game board text (placeholders + revealed letters)*/
 li {
 	float:left;
 	font-size:30px;
@@ -49,20 +50,14 @@ body {
 	/*#d8ab4e gold */
 	/*#040404 charcoal*/
 	/*CC0000 red*/
+
+	/*google font*/
 	font-family: 'Bevan', sans-serif;
+	
+	/*background fills 100% of horizontal width, repeats vertically*/
 	background: url(../images/bg2.jpg) repeat-y 0 0;
-	/*background: url(../images/bg2.jpg) repeat 0 0;*/
-	/*assets/images/arrow16_top.jpg*/
 	background-size: 100%;
 }
-
-.outer-container {
-	
-}
-
-
-/*glyphicon glyphicon-ok-sign*/
-/*glyphicon glyphicon-remove-sign*/
 
 
 .player-image {
